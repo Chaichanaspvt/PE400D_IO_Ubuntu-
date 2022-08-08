@@ -1,0 +1,23 @@
+Install the related Packages
+$ sudo apt-get update
+$ sudo apt-get install build-essential i2c-tools
+
+$ sudo modprobe i2c-i801
+# You can remove this module in the kernel modules blacklist file "/etc/modprobe.d/blacklist.conf"
+
+$ make
+
+# The compiled files is in the "./bin" folder. Use DIx to get input values from DIx, and DOx to set output values of DOx. 
+
+├── bin
+│   ├── DI0
+│   ├── DI1
+│   ├── DI2
+│   ├── DI3
+│   ├── DO0
+│   ├── DO1
+│   ├── DO2
+│   └── DO3
+
+
+

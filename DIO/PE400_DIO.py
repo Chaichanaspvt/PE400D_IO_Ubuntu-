@@ -23,7 +23,7 @@ class PE400_DIO:
             os.makedirs('bin/Log')
 
         logHandler = handlers.TimedRotatingFileHandler('bin/Log/DIO_SP.log',
-         when='S', interval=5, backupCount=10)
+         when='S', interval=100, backupCount=100)
         logHandler.setLevel(logging.INFO)
         # Set Level for logging events 
         logHandler.setFormatter(formatter)
@@ -61,7 +61,7 @@ class PE400_DIO:
     def _DO0(self,status = 0):
         try:
             if status == 0 or status == 1:
-               self._DO0_status = call(["./bin/DO0 ", str(status)])
+               self._DO0_status = call(["./bin/DO0 {}".format(status)],shell=True)
         except Exception as e:
                 self._DO0_status = 99
                 self.logger.error(str(e))
@@ -69,7 +69,7 @@ class PE400_DIO:
     def _DO1(self,status = 0):
         try:
             if status == 0 or status == 1:
-                self._DO1_status = call(["./bin/DO1 ", str(status)])
+                self._DO1_status = call(["./bin/DO1 {}".format(status)],shell=True)
         except Exception as e:
                 self._DO1_status = 99
                 self.logger.error(str(e))
@@ -77,7 +77,7 @@ class PE400_DIO:
     def _DO2(self,status = 0):
         try:
             if status == 0 or status == 1:
-                self._DO2_status = call(["./bin/DO2 ", str(status)])
+                self._DO2_status = call(["./bin/DO2 {}".format(status)],shell=True)
         except Exception as e:
                 self._DO2_status = 99
                 self.logger.error(str(e))
@@ -85,7 +85,7 @@ class PE400_DIO:
     def _DO3(self,status = 0):
         try:
             if status == 0 or status == 1:
-               self._DO3_status = call(["./bin/DO3 ", str(status)])
+               self._DO3_status = call(["./bin/DO3 {}".format(status)],shell=True)
         except Exception as e:
                 self._DO3_status = 99
                 self.logger.error(str(e))
